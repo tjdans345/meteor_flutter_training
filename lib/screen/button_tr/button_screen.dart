@@ -19,9 +19,8 @@ class ButtonScreen extends StatelessWidget {
             children: [
               ElevatedButton(
                 onPressed: () {
-                  print(" 하이하이 ");
+                  print("Elevated Button Style");
                 },
-                child: const Text("Elevated Button"),
                 style: ButtonStyle(
                     // Material State
                     // hovered - 호버링 상태 ( 마우스 커서를 올려놓은 상태 )
@@ -33,10 +32,29 @@ class ButtonScreen extends StatelessWidget {
                     // disabled - 비활성화 됐을 때
                     // error - 에러 상태
                     backgroundColor:
-                        MaterialStateProperty.all(Colors.pinkAccent),
-                    foregroundColor:
-                        MaterialStateProperty.resolveWith((states) => null)),
-              )
+                        // MaterialStateProperty.all(Colors.pinkAccent),
+                        MaterialStateProperty.resolveWith((states) {
+                  if (states.contains(MaterialState.pressed)) {
+                    return Colors.blueAccent;
+                  }
+                  ;
+                  return Colors.pinkAccent;
+                }), foregroundColor:
+                        MaterialStateProperty.resolveWith((states) {
+                  if (states.contains(MaterialState.pressed)) {
+                    return Colors.green;
+                  }
+                  return Colors.blueAccent;
+                })),
+                child: const Text(
+                  "Elevated Button Style",
+                  style: TextStyle(
+                      fontSize: 15.0,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w700),
+                ),
+              ),
+              ElevatedButton(onPressed: () {}, child: Text(""))
             ],
           ),
         ),
