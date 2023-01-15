@@ -93,7 +93,7 @@ class ButtonScreen extends StatelessWidget {
                     backgroundColor: Colors.green,
                     foregroundColor: Colors.greenAccent,
                   ),
-                  child: TextComponent(
+                  child: const TextComponent(
                     textContent: "TextButton",
                     textColor: Colors.white,
                     textFontSize: 15.0,
